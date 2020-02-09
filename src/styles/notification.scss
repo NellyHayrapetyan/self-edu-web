@@ -1,0 +1,104 @@
+@import "../styles/variables";
+
+.toast-container {
+  pointer-events: auto;
+}
+
+@mixin colorify($bgColor, $borderColor){
+  background-color: $bgColor;
+  border: 1px solid $borderColor;
+  border-left: 5px solid $borderColor;
+}
+
+.notification {
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 6px;
+  width: 300px;
+  min-height: 100px;
+  background-position: 15px center;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.35);
+  color: white;
+  transition: all 0.3s;
+  user-select: none;
+  background-color: white;
+  background-image: none;
+  border-radius: 4px;
+
+  .toast-title {
+    background-color: #ededed;
+    font-weight: 600;
+    color: $black-blue;
+    padding: 7px 10px;
+    font-size: 14px;
+    width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &::before {
+      font-family: TMS, sans-serif;
+      background-color: white;
+    }
+  }
+
+  .toast-message {
+    padding: 10px;
+    font-size: 15px;
+    color: $black-blue;
+  }
+
+  .toast-close-button {
+    position: absolute;
+    top: 4px;
+    right: 5px;
+    transition: all 0.3s;
+
+    > span {
+      text-shadow: none;
+      width: 18px;
+      height: 18px;
+      background-color: $grey;
+      display: block;
+      line-height: 15px;
+      border-radius: 100%;
+      font-weight: 100;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &.toast-success {
+    .toast-title::before {
+      content: '\e926';
+      color: $green;
+      font-weight: normal;
+    }
+  }
+
+  &.toast-error {
+    .toast-title::before {
+      content: '\e929';
+      color: $red;
+      font-weight: normal;
+    }
+  }
+
+  &.toast-info {
+    .toast-title::before {
+      content: '\e92a';
+      color: $blue-dark;
+      font-weight: normal;
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.35);
+    opacity: 1;
+    cursor: pointer;
+  }
+}

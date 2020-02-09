@@ -1,0 +1,255 @@
+@font-face {
+  font-family: 'TMS';
+  src: url('../assets/fonts/tms.eot');
+  src: url('../assets/fonts/tms.eot') format('embedded-opentype'),
+      url('../assets/fonts/tms.woff') format('woff'),
+      url('../assets/fonts/tms.ttf') format('truetype'),
+      url('../assets/fonts/tms.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.tms {
+  display: inline-block;
+  font: normal normal normal 14px/1 TMS;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.tms-default {
+  font-size: 1.2em;
+}
+
+.tms-1x {
+  font-size: 1.5em;
+}
+.tms-2x {
+  font-size: 2em;
+}
+.tms-3x {
+  font-size: 3em;
+}
+.tms-4x {
+  font-size: 4em;
+}
+.tms-5x {
+  font-size: 5em;
+}
+
+.tms-mid-size{
+  font-size: 18px;
+}
+
+.tms-fw {
+  width: 1.28571429em;
+  text-align: center;
+}
+
+.tms-rotate {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.tms-rotate-left {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.tms-rotate-right {
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+.tms-spin {
+  -webkit-animation: tms-spin 2s infinite linear;
+  animation: tms-spin 2s infinite linear;
+}
+.tms-pulse {
+  -webkit-animation: tms-spin 1s infinite steps(8);
+  animation: tms-spin 1s infinite steps(8);
+}
+@-webkit-keyframes tms-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(-359deg);
+    transform: rotate(-359deg);
+  }
+}
+@keyframes tms-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(-359deg);
+    transform: rotate(-359deg);
+  }
+}
+
+.tms-dashboard:before {
+  content: "\e900";
+}
+.tms-company:before {
+  content: "\e901";
+}
+.tms-update:before {
+  content: "\e902";
+}
+.tms-edit:before {
+  content: "\e903";
+}
+.tms-flag:before {
+  content: "\e904";
+}
+.tms-employee:before {
+  content: "\e905";
+}
+.tms-logout:before {
+  content: "\e906";
+}
+.tms-artboard:before {
+  content: "\e907";
+}
+.tms-search:before {
+  content: "\e908";
+}
+.tms-approve:before {
+  content: "\e909";
+}
+.tms-clock:before {
+  content: "\e90a";
+}
+.tms-comment:before {
+  content: "\e90b";
+}
+.tms-actions:before {
+  content: "\e90c";
+}
+.tms-user:before {
+  content: "\e90d";
+}
+.tms-back:before {
+  content: "\e90e";
+}
+.tms-image:before {
+  content: "\e910";
+}
+.tms-export:before {
+  content: "\e911";
+}
+.tms-map:before {
+  content: "\e912";
+}
+.tms-close:before {
+  content: "\e913";
+}
+.tms-pm:before {
+  content: "\e914";
+}
+.tms-calendar:before {
+  content: "\e915";
+}
+.tms-error:before {
+  content: "\e916";
+}
+.tms-hideMap:before {
+  content: "\e917";
+}
+.tms-report:before {
+  content: "\e918";
+}
+.tms-photo:before {
+  content: "\e919";
+}
+.tms-password:before {
+  content: "\e91a";
+}
+.tms-dropdown:before {
+  content: "\e91b";
+}
+.tms-webcam:before {
+  content: "\e91c";
+}
+.tms-pop-up:before {
+  content: "\e91d";
+}
+.tms-jobsite:before {
+  content: "\e91e";
+}
+.tms-copy:before {
+  content: "\e91f";
+}
+.tms-sign-out:before {
+  content: "\e920";
+}
+.tms-user-settings:before {
+  content: "\e921";
+}
+.tms-building:before {
+  content: "\e922";
+}
+.tms-reject:before {
+  content: "\e923";
+}
+.tms-target:before {
+  content: "\e90f";
+}
+.tms-analytics:before {
+  content: "\e924";
+}
+.tms-payroll:before {
+  content: "\e925";
+}
+.tms-notification-success:before {
+  content: "\e926";
+}
+.tms-user-dropdown:before {
+  content: "\e927";
+}
+.tms-bell:before {
+  content: "\e928";
+}
+.tms-notification-error:before {
+  content: "\e929";
+}
+.tms-notification-info:before {
+  content: "\e92a";
+}
+.tms-disabled:before {
+  content: "\e92b";
+}
+.tms-terminated:before {
+  content: "\e92d";
+}
+.tms-draft:before {
+  content: "\e92c";
+}
+.tms-active:before {
+  content: "\e92e";
+}
+
+.tms-calendar-day:before {
+  content: "\e930";
+}
+
+.tms-calendar2:before {
+  content: "\e931";
+}
+
+.tms-copy2:before {
+  content: "\e932";
+}
+
+.tms-tracker:before {
+  content: "\e933";
+}
+
+.tms-clear:before {
+  content: "\e92f";
+}
+

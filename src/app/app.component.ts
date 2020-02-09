@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
+import { environment } from '../environments/environment';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: `<router-outlet></router-outlet>`,
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'self-edu-web';
+
+  constructor() {
+  }
 }

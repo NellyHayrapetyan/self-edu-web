@@ -1,0 +1,58 @@
+<div class="login-wrapper">
+
+  <div class="bg-box">
+    <img src="../../assets/img/logo.svg" alt="logo">
+    <h3>Free and Easy education </h3>
+  </div>
+
+  <div class="login-form">
+    <h2>Sign In</h2>
+
+    <div class="invalid-error">
+      <span *ngIf="errorMessage"> {{ errorMessage }} </span>
+    </div>
+
+
+    <form
+      data-test-id="login-form"
+      *ngIf="!needSetPmPassword && !disabledTenantInfo"
+      [formGroup]="loginForm"
+      (ngSubmit)="login(loginForm)"
+      novalidate
+    >
+
+      <div class="field-wrapper">
+        <input
+          type="text"
+          class="username"
+          name="username"
+          formControlName="username"
+          placeholder="Username"
+          autocomplete="off"
+          [class.empty]="loginControl('username').hasError('required')"
+          [class.error]="loginControl('username').touched && loginControl('username').invalid"
+        />
+      </div>
+
+      <div class="field-wrapper">
+        <input
+          type="password"
+          name="password"
+          class="password"
+          formControlName="password"
+          placeholder="Password"
+          autocomplete="off"
+          [class.empty]="loginControl('password').hasError('required')"
+          [class.error]="loginControl('password').touched && loginControl('password').invalid"
+        />
+      </div>
+
+      <div class="field-wrapper">
+        <button *ngIf="!loading" [disabled]="loading" class="btn" data-test-id="login-submit-button">LOGIN</button>
+        <img class="loading" *ngIf="loading" src="../../assets/img/loader.svg" alt="loading">
+      </div>
+    </form>
+    <span [routerLink]="['../', 'registration']">Create Account?</span>
+  </div>
+
+</div>
