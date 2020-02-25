@@ -39,6 +39,11 @@ export class AuthenticationService {
       .toPromise();
   }
 
+  public createUser(data) {
+    return this.http.post(`${environment.api}/auth/create-user`, data)
+      .toPromise();
+  }
+
   public signUp(data) {
     return this.http.post(`${environment.api}/auth/signup`, data)
       .toPromise();

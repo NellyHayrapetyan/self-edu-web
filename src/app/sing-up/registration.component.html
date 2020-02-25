@@ -8,7 +8,7 @@
   <div class="login-form">
     <h2>Register As</h2>
 
-    <div class="user-type-wrapper">
+    <div class="user-type-wrapper" *ngIf="!confirmPasswordModeOpen">
       <span
         [class.selected]="selectedRole === 'teacher'"
         (click)="selectRole('teacher')"
@@ -23,10 +23,8 @@
       <span *ngIf="errorMessage"> {{ errorMessage }} </span>
     </div>
 
-
     <form
-      data-test-id="login-form"
-      *ngIf="!needSetPmPassword && !disabledTenantInfo"
+      *ngIf="!confirmPasswordModeOpen"
       [formGroup]="loginForm"
       (ngSubmit)="register(loginForm)"
       novalidate
@@ -60,31 +58,68 @@
       <div class="field-wrapper">
         <input
           type="text"
-          class="username"
-          name="username"
-          formControlName="username"
-          placeholder="Username"
+          class="email"
+          name="email"
+          formControlName="email"
+          placeholder="Email"
           autocomplete="off"
-          [class.empty]="loginControl('username').hasError('required')"
-          [class.error]="loginControl('username').touched && loginControl('username').invalid"
+          [class.empty]="loginControl('email').hasError('required')"
+          [class.error]="loginControl('email').touched && loginControl('email').invalid"
+        />
+      </div>
+
+      <div class="field-wrapper">
+        <button *ngIf="!loading" [disabled]="loading" class="btn">REGISTER</button>
+        <img class="loading" *ngIf="loading" src="../../assets/img/loader.svg" alt="loading">
+      </div>
+    </form>
+
+    <form
+      *ngIf="confirmPasswordModeOpen"
+      [formGroup]="passwordConfirmationForm"
+      (ngSubmit)="signUp(passwordConfirmationForm)"
+      novalidate
+    >
+      <div class="field-wrapper">
+        <input
+          type="password"
+          name="oneTimePassword"
+          class="password"
+          formControlName="oneTimePassword"
+          placeholder="One Time Password"
+          autocomplete="off"
+          [class.empty]="passwordConfirmationControl('oneTimePassword').hasError('required')"
+          [class.error]="passwordConfirmationControl('oneTimePassword').touched && passwordConfirmationControl('oneTimePassword').invalid"
         />
       </div>
 
       <div class="field-wrapper">
         <input
           type="password"
-          name="password"
+          name="newPassword"
           class="password"
-          formControlName="password"
-          placeholder="Password"
+          formControlName="newPassword"
+          placeholder="New Password"
           autocomplete="off"
-          [class.empty]="loginControl('password').hasError('required')"
-          [class.error]="loginControl('password').touched && loginControl('password').invalid"
+          [class.empty]="passwordConfirmationControl('newPassword').hasError('required')"
+          [class.error]="passwordConfirmationControl('newPassword').touched && passwordConfirmationControl('newPassword').invalid"
         />
       </div>
 
       <div class="field-wrapper">
-        <button *ngIf="!loading" [disabled]="loading" class="btn" data-test-id="login-submit-button">REGISTER</button>
+        <input
+          type="password"
+          name="confirmPassword"
+          class="password"
+          formControlName="confirmPassword"
+          placeholder="Confirm Password"
+          autocomplete="off"
+          [class.empty]="passwordConfirmationControl('confirmPassword').hasError('required')"
+          [class.error]="passwordConfirmationControl('confirmPassword').touched && passwordConfirmationControl('confirmPassword').invalid"
+        />
+      </div>
+      <div class="field-wrapper">
+        <button *ngIf="!loading" [disabled]="loading" class="btn">SET PASSWORD</button>
         <img class="loading" *ngIf="loading" src="../../assets/img/loader.svg" alt="loading">
       </div>
     </form>

@@ -11,19 +11,19 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 export class RegistrationComponent {
 
-  public needSetPmPassword = false;
   public selectedRole: string;
   public loading = false;
+  public user;
   public errorMessage = '';
+  public confirmPasswordModeOpen = false;
   public tenantInfo: any;
-  public disabledTenantInfo: any;
   public loginForm: FormGroup = this.formBuilder.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
-    username: ['', Validators.required],
-    password: ['', Validators.required],
+    email: ['', Validators.required],
   });
   public passwordConfirmationForm: FormGroup = this.formBuilder.group({
+    oneTimePassword: ['', Validators.required],
     newPassword: ['', Validators.required],
     confirmPassword: ['', Validators.required],
   });
@@ -36,19 +36,47 @@ export class RegistrationComponent {
 
   }
 
-  public async  signIn({ username, password, firstName, lastName }) {
+  public async  createUser({ email, firstName, lastName }) {
     try {
-      await this.authenticationService.signUp({
-        username,
-        password,
+      await this.authenticationService.createUser({
+        email,
         firstName,
         lastName,
         role: this.selectedRole
       });
       this.loading = false;
-      this.router.navigate(['']);
+      this.confirmPasswordModeOpen = true;
 
     } catch (error) {
+      this.loading = false;
+      console.log(error);
+    }
+  }
+
+  public async signUp({ value, invalid }) {
+    if (invalid) {
+      return;
+    }
+
+    this.loading = true;
+    const { oneTimePassword, newPassword, confirmPassword } = value;
+    if (newPassword !== confirmPassword) {
+      this.loading = false;
+      this.errorMessage = 'Password doesn\'t match';
+      return;
+    }
+
+    try {
+      await this.authenticationService.signUp({
+        ...this.user,
+        oneTimePassword,
+        password: newPassword,
+        role: this.selectedRole
+      });
+      this.loading = false;
+      this.router.navigate(['']);
+    } catch (error) {
+      this.loading = false;
       console.log(error);
     }
   }
@@ -57,9 +85,11 @@ export class RegistrationComponent {
     if (invalid) {
       return;
     }
+
     this.loading = true;
     const { accessToken, ...user } = value;
-    this.signIn(user);
+    this.user = user;
+    this.createUser(user);
   }
 
   public selectRole(userRole) {

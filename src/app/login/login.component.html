@@ -15,7 +15,7 @@
 
     <form
       data-test-id="login-form"
-      *ngIf="!needSetPmPassword && !disabledTenantInfo"
+      *ngIf="!disabledTenantInfo"
       [formGroup]="loginForm"
       (ngSubmit)="login(loginForm)"
       novalidate

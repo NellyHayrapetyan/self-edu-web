@@ -10,19 +10,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 
 export class LoginComponent {
-
-  public needSetPmPassword = false;
   public loading = false;
   public errorMessage = '';
   public tenantInfo: any;
-  public disabledTenantInfo: any;
   public loginForm: FormGroup = this.formBuilder.group({
     username: ['', Validators.required],
     password: ['', Validators.required],
-  });
-  public passwordConfirmationForm: FormGroup = this.formBuilder.group({
-    newPassword: ['', Validators.required],
-    confirmPassword: ['', Validators.required],
   });
 
   constructor(
@@ -40,6 +33,7 @@ export class LoginComponent {
       this.router.navigate(['']);
 
     } catch (error) {
+      this.loading = false;
       console.log(error);
     }
   }
@@ -55,9 +49,5 @@ export class LoginComponent {
 
   public loginControl(name) {
     return this.loginForm.get(name);
-  }
-
-  public passwordConfirmationControl(name) {
-    return this.passwordConfirmationForm.get(name);
   }
 }
