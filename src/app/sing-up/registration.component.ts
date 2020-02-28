@@ -47,7 +47,14 @@ export class RegistrationComponent {
       this.loading = false;
       this.confirmPasswordModeOpen = true;
 
-    } catch (error) {
+    } catch ({ error }) {
+      if (error.statusCode >= 400 || error.statusCode <  500)  {
+        this.errorMessage = 'Email is not valid';
+
+        if (error.message[0].property === 'role')  {
+          this.errorMessage = 'Please specify user role';
+        }
+      }
       this.loading = false;
       console.log(error);
     }
@@ -76,6 +83,9 @@ export class RegistrationComponent {
       this.loading = false;
       this.router.navigate(['']);
     } catch (error) {
+      if (error.statusCode >= 400 || error.statusCode <  500)  {
+        this.errorMessage = 'Password is incorrect';
+      }
       this.loading = false;
       console.log(error);
     }

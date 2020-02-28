@@ -18,8 +18,8 @@ export class AuthenticationService {
     return this.http.get<any>(`${environment.api}/users/profile`);
   }
 
-  public login(username, password) {
-    return this.http.post(`${environment.api}/auth/signin`, { username, password })
+  public login(email, password) {
+    return this.http.post(`${environment.api}/auth/signin`, { email, password })
       .pipe(
         map((user: any) => {
           if (user && user.accessToken) {

@@ -33,6 +33,9 @@ export class LoginComponent {
       this.router.navigate(['']);
 
     } catch (error) {
+      if (error.statusCode >= 400 || error.statusCode <  500)  {
+        this.errorMessage = 'Username/Password  is incorrect';
+      }
       this.loading = false;
       console.log(error);
     }
