@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'dashboard',
@@ -7,5 +8,15 @@ import { Component } from '@angular/core';
 })
 
 export class DashboardComponent {
+
+  constructor(private router: Router) {}
+
+  public navigateToRegistration() {
+    this.router.navigate(['registration']);
+  }
+
+  public navigateToLogin() {
+    this.router.navigate(['login']);
+  }
 
 }

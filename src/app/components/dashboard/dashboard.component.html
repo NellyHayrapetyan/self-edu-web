@@ -6,8 +6,8 @@
     </div>
 
     <div class="login-registration">
-      <span [routerLink]="['registration']">Sign Up</span>
-      <span [routerLink]="['login']">Log In</span>
+      <span (click)="navigateToRegistration()">Sign Up</span>
+      <span (click)="navigateToLogin()">Log In</span>
     </div>
   </div>
 

@@ -30,7 +30,7 @@ export class LoginComponent {
     try {
       await this.authenticationService.login(username, password);
       this.loading = false;
-      this.router.navigate(['']);
+      this.router.navigate(['dashboard']);
 
     } catch (error) {
       if (error.statusCode >= 400 || error.statusCode <  500)  {
