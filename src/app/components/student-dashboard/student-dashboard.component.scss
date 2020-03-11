@@ -1,12 +1,81 @@
-.header {
-  height: 40px;
-  box-shadow: -6px 10px 19px -9px grey;
-  display: block;
-  position: relative;
+@import "../../../styles/variables";
 
-  .log-out {
-    position: absolute;
-    top:  10px;
-    right: 10px;
+.student-dashboard-wrapper {
+  height: 100%;
+
+  .header {
+    height: 40px;
+    box-shadow: -6px 10px 19px -9px grey;
+    display: block;
+    background-color: $purple;
+    color:  white;
+    position: relative;
+
+    .log-out {
+      position: absolute;
+      top:  10px;
+      right: 10px;
+      cursor: pointer;
+    }
+
+    .user-info {
+      position: absolute;
+      top: 10px;
+      left: 70px;
+    }
+  }
+
+  .student-dashboard-body {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 16px;
+    background-color: $purple3;
+    height: 100%;
+
+    h1 {
+      color: white;
+      font-size: 30px;
+    }
+
+    .subjects-wrapper {
+      display: flex;
+      height: 100%;
+      padding: 40px 0;
+      flex-wrap: wrap;
+
+      > div {
+        cursor: pointer;
+        min-width: 300px;
+        height: 230px;
+        background-color: white;
+        box-shadow: 0 5px 7px 3px $purple;
+        border-radius: 11px;
+        margin-right: 18px;
+
+        .subject-header {
+          color: black;
+          font-size: 20px;
+          display: flex;
+          font: Regular 18px/22px Helvetica Neue;
+          margin: 0 16px;
+          justify-content: space-between;
+          padding: 20px 10px 15px 10px;
+          border-bottom: 1px solid $grey2;
+        }
+
+        .subject-info {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          height: calc(100% - 59px);;
+          justify-content: center;
+
+           > img {
+             height: 100px;
+             width: 100px;
+           }
+        }
+      }
+    }
   }
 }

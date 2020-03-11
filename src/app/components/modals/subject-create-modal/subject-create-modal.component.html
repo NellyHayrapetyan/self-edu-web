@@ -1,0 +1,16 @@
+<div class="create-subject-wrapper">
+  <div class="create-subject-header">Create New Subject</div>
+  <form class="create-subject-body" [formGroup]="subjectForm">
+    <div class="field">
+      <span>Enter subject name</span>
+      <input type="text" formControlName="name">
+    </div>
+    <div class="field">
+      <span>Enter subject title</span>
+      <input type="text" formControlName="title">
+    </div>
+  </form>
+  <div class="create-subject-footer">
+    <span (click)="createSubject()">Create</span>
+  </div>
+</div>

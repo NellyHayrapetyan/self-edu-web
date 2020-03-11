@@ -1,0 +1,59 @@
+@import "../../../../styles/variables";
+
+.create-subject-wrapper {
+  position: relative;
+  height: 100%;
+
+  .create-subject-header {
+    height: 50px;
+    background-color: $purple;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    font-size: 20px;
+  }
+
+  .create-subject-body {
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      padding: 15px;
+
+      > span {
+        font-size: 18px;
+        color: $purple3;
+      }
+
+      input {
+        height: 30px;
+        border-radius: 4px;
+        border: 1px solid $grey;
+        padding: 5px 15px;
+        font-size: 16px;
+      }
+    }
+
+  }
+
+  .create-subject-footer {
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    font-size: 20px;
+    width: 100%;
+    display: flex;
+    padding: 8px 0;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      padding: 10px 50px;
+      border: 1px solid $purple;
+      color: $purple;
+      border-radius: 5px;
+    }
+  }
+
+}

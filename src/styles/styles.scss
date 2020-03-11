@@ -1,7 +1,184 @@
 @import 'variables';
 @import 'reset';
+@import 'mixins';
+@import "icons";
+@import "notification";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+* {
+  outline: none;
+}
+
+input, select {
+  -webkit-appearance: none;
+}
 
 html, body {
-  width: 100%;
-  height: 100%;
+  @include full-page();
+  font-family: Helvetica, sans-serif;
+  -webkit-overflow-scrolling: touch;
+
+  &.custom-scroll-bar {
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 7px rgba(0,0,0,0.2);
+    }
+    ::-webkit-scrollbar-thumb {
+      -webkit-box-shadow: inset 0 0 7px rgba(0,0,0,0.6);
+    }
+  }
+}
+
+body.modal-open{
+  overflow: hidden;
+}
+
+input[readonly] {
+  background-color: #ebebe4;
+  cursor: default;
+}
+
+.mat-dialog-container {
+  overflow: initial !important;
+  padding: 0 !important;
+  max-width: initial !important;
+}
+
+.mat-option {
+  height: 30px !important;
+  line-height: 30px !important;
+  font-size: 14px !important;
+}
+
+.ng-tooltip {
+  max-width: 200px;
+  background-color: rgba(0,0,0, 0.8);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 8px;
+  position: absolute;
+  z-index: 1000;
+  display: block;
+  opacity: 0;
+  transition: opacity 300ms;
+}
+.ng-tooltip-show {
+  opacity: 1;
+}
+.ng-tooltip::after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+}
+.ng-tooltip-top::after {
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-color: black transparent transparent transparent;
+}
+.ng-tooltip-bottom::after {
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-color: transparent transparent black transparent;
+}
+.ng-tooltip-left::after {
+  top: 50%;
+  left: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-color: transparent transparent transparent black;
+}
+.ng-tooltip-right::after {
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-color: transparent black transparent transparent;
+}
+
+.custom-tooltip {
+  font-size: 15px !important;
+}
+
+input {
+  &::-ms-clear {
+    display: none;
+  }
+}
+
+.chat-notification {
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 6px;
+  padding: 15px;
+  width: 250px;
+  border-radius: 3px 3px 3px 3px;
+  background-position: 15px center;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  box-shadow: 0 0 12px #999999;
+  color: #fef035;
+  background-color: #7b7b7b !important;
+  border-left: 7px solid #fef035;
+
+  &.toast-info {
+    background-image: none !important;
+  }
+
+  .toast-title {
+    font-weight: 400;
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+
+  .toast-message {
+    font-size: 13px;
+    color: white;
+  }
+}
+
+.payroll-navigation-toastr-message {
+  padding: 10px;
+
+  > p {
+    color: $black-blue;
+    font-size: 15px;
+
+    &:last-child {
+      color: $blue-dark;
+      margin-top: 5px;
+      font-size: 14px;
+    }
+  }
+}
+
+@keyframes slideLeft {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0); }
+}
+
+.slide-left-modal-panel {
+
+  &.cdk-overlay-pane {
+    animation: slideLeft 0.3s forwards 0s ease !important;
+
+    > * {
+      transition: none;
+    }
+
+    mat-dialog-container {
+      border-radius: 0;
+    }
+  }
+}
+
+.dialog-background-layer {
+  background: rgba(0,0,0,.32);
 }

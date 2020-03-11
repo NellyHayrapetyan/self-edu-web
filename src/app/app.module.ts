@@ -9,10 +9,12 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Services } from './common/services';
 import { RegistrationComponent } from './sing-up/registration.component';
-import { Components } from './components';
+import { Components, EntryComponents } from './components';
 import { JwtInterceptor } from './common/services/interceptor.service';
 import { Guards } from './common/guards';
 import { NgxPermissionsModule, NgxPermissionsService } from 'ngx-permissions';
+import {  MatDialogModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,14 @@ import { NgxPermissionsModule, NgxPermissionsService } from 'ngx-permissions';
     BrowserModule,
     FormsModule,
     BrowserModule,
+    MatDialogModule,
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES),
     NgxPermissionsModule.forRoot(),
+    BrowserAnimationsModule,
+  ],
+  entryComponents: [
+    ...EntryComponents,
   ],
   providers: [
     ...Services,

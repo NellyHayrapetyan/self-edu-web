@@ -46,7 +46,7 @@ export class RegistrationComponent {
       });
       this.loading = false;
       this.confirmPasswordModeOpen = true;
-
+      this.errorMessage = null;
     } catch ({ error }) {
       if (error.statusCode >= 400 || error.statusCode <  500)  {
         this.errorMessage = 'Email is not valid';

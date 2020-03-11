@@ -1,5 +1,19 @@
 <div class="student-dashboard-wrapper">
   <div class="header">
+    <span class="user-info">{{ user.firstName }} {{ user.lastName }}</span>
     <span class="log-out" (click)="logOut()">Log Out</span>
+  </div>
+
+  <div class="student-dashboard-body">
+    <h1>Choose the subject you want to learn</h1>
+    <div class="subjects-wrapper">
+      <div *ngFor="let subject of subjects">
+        <span class="subject-header">{{ subject.title }}</span>
+        <div class="subject-info">
+          <img src="../../../assets/img/{{subject.name}}.png" alt="subject-icon">
+          <span>Courses for subject</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
