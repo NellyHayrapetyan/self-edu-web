@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start:prod": "node server.js  && node compress.js",
+    "start:prod": "node server.js",
     "build:stats": "ng build --stats-json",
     "build": "ng build",
     "test": "ng test",
